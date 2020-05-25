@@ -1,4 +1,4 @@
-FROM ubuntu:18.10
+FROM ubuntu:20.04
 RUN mkdir /code
 WORKDIR /code
 RUN apt-get update && apt-get install -y curl nginx

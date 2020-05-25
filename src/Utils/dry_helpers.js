@@ -1,13 +1,13 @@
 function isDetailed(props) {
     // Check if the current path is the detailed page
     if (window.marz_configuration.layout == 'MarzSpectrumView')
-        return props.history.location.pathname.startsWith('/detailed');
+        return props.history.location.pathname.startsWith('/marz/detailed');
     return true;
 }
 
 function isOverview(props) {
     // Check if the current path is the overview page (TODO: Why is the "/marz" check needed on asvo.org.au?)
-    return (props.location.pathname === '/' || props.history.location.pathname.startsWith('/marz'));
+    return (props.location.pathname === '/marz/' || props.history.location.pathname.startsWith('/marz'));
 }
 
 function isSmall(props) {

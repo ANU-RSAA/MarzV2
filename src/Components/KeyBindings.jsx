@@ -36,7 +36,7 @@ class KeyBindings extends React.Component {
                 key: 'shift+?',
                 label: '?',
                 description: 'Go to the Usage tab',
-                fn: () => this.props.history.push('/usage/')
+                fn: () => this.props.history.push('/marz/usage/')
             },
             {
                 key: 'n',

@@ -262,7 +262,7 @@ class Sidebar extends React.Component {
                                                 onClick={() => this.props.data.processorService.spectraManager.setActive(e)}
                                                 onDoubleClick={() => {
                                                     this.props.data.processorService.spectraManager.setActive(e);
-                                                    this.props.history.push('/detailed/')
+                                                    this.props.history.push('/marz/detailed/')
                                                 }}
                                             >
                                                 <p>

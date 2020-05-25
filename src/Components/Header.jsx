@@ -32,26 +32,26 @@ class Header extends React.Component {
     render() {
         return (
             <Navbar color="dark" dark expand="md" fixed="top" className="marz-header">
-                <Link className="navbar-brand" to="/">
+                <Link className="navbar-brand" to="/marz/">
                     <img className='navbar-brand-logo' src={marzIcon} alt="Marz Logo"/>
                 </Link>
                 <NavbarToggler onClick={this.toggle}/>
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <Link className="nav-link" to="/"><FontAwesomeIcon icon={faTh}/> Overview</Link>
+                            <Link className="nav-link" to="/marz/"><FontAwesomeIcon icon={faTh}/> Overview</Link>
                         </NavItem>
                         <NavItem>
-                            <Link className="nav-link" to="/detailed/"><FontAwesomeIcon icon={faSignal}/> Detailed</Link>
+                            <Link className="nav-link" to="/marz/detailed/"><FontAwesomeIcon icon={faSignal}/> Detailed</Link>
                         </NavItem>
                         <NavItem>
-                            <Link className="nav-link" to="/templates/"><FontAwesomeIcon icon={faTasks}/> Templates</Link>
+                            <Link className="nav-link" to="/marz/templates/"><FontAwesomeIcon icon={faTasks}/> Templates</Link>
                         </NavItem>
                         <NavItem>
-                            <Link className="nav-link" to="/settings/"><FontAwesomeIcon icon={faCog}/> Settings</Link>
+                            <Link className="nav-link" to="/marz/settings/"><FontAwesomeIcon icon={faCog}/> Settings</Link>
                         </NavItem>
                         <NavItem>
-                            <Link className="nav-link" to="/usage/"><FontAwesomeIcon icon={faQuestionCircle}/> Usage</Link>
+                            <Link className="nav-link" to="/marz/usage/"><FontAwesomeIcon icon={faQuestionCircle}/> Usage</Link>
                         </NavItem>
                     </Nav>
                     {
