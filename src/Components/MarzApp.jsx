@@ -59,13 +59,13 @@ function MarzApp(props) {
                         (
                             <div className={"afterSideBarContainer" + (isSmall({...props, ...routeProps}) ? " sidebarSmall" : "")}>
                                 <div className="spacing relative">
-                                    <Route path="/" render={(routeProps) => <Overview {...props} {...routeProps}/>}/>
-                                    <Route path="/usage/" render={(routeProps) => <Usage {...props} {...routeProps}/>}/>
-                                    <Route path="/detailed/"
+                                    <Route path="/marz/" render={(routeProps) => <Overview {...props} {...routeProps}/>}/>
+                                    <Route path="/marz/usage/" render={(routeProps) => <Usage {...props} {...routeProps}/>}/>
+                                    <Route path="/marz/detailed/"
                                         render={(routeProps) => <Detailed {...props} {...routeProps}/>}/>
-                                    <Route path="/settings/"
+                                    <Route path="/marz/settings/"
                                         render={(routeProps) => <Settings {...props} {...routeProps}/>}/>
-                                    <Route path="/templates/"
+                                    <Route path="/marz/templates/"
                                         render={(routeProps) => <Templates {...props} {...routeProps}/>}/>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@ function MarzApp(props) {
                         (
                             <div className="afterSideBarContainer readOnlySpectraContainer">
                                 <div className="spacing relative">
-                                    <Route path="/"
+                                    <Route path="/marz/"
                                         render={(routeProps) => <Detailed {...props} {...routeProps}/>}/>
                                 </div>
                             </div>

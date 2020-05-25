@@ -170,7 +170,7 @@ class Overview extends React.Component {
                 const rowEvents = {
                     onDoubleClick: (e, row, rowIndex) => {
                         this.props.data.processorService.spectraManager.setActive(Enumerable.from(this.props.data.spectra).first(e => e.id === row.id));
-                        this.props.history.push('/detailed/')
+                        this.props.history.push('/marz/detailed/')
                     }
                 };
 
