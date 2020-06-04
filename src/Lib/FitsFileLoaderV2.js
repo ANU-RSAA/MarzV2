@@ -793,9 +793,13 @@ class FitsFileLoader {
 
         // Look to identify which data extension(s) have intensity data in them
         // We assume anything with an 'OBJECT' keyword is describing real data
+        // Or, any header labelled with '*INTENS*'
         let exts_with_int = [];
         exts_with_data.forEach(function (item, index) {
-            if (this.readHeaderValue(item, "OBJECT", undefined) !== undefined) {
+            if (
+                (this.readHeaderValue(item, "OBJECT", undefined) !== undefined) ||
+                (this.readHeaderValue(item, "EXTNAME", "").match(/intens/i))
+            ) {
                 exts_with_int.push(item);
             }
         }.bind(this));
@@ -1025,11 +1029,18 @@ class FitsFileLoader {
         // Unfortunately, the headers do no describe the above structure adequately to allow
         // the normal parsing functions to work, so we'll have to do the whole thing manually.
 
+        // However, some of the files seem to follow a different HDU structure, namely:
+        // IMAGE, INTENSITY, VARIANCE, SKY, WAVELENGTH
+        // So, if we find the INTENSITY extension, we can hand over to parseMultiExtensionFitsFile
+
         let spectrum_exts = [];
         // Identify the extensions with the data we want
         for (var i = 0; i < this.numExtensions; i++) {
-            if (this.readHeaderValue(i, 'EXTNAME', "").match(/spectrum/i)){
+            var extname = this.readHeaderValue(i, 'EXTNAME', "");
+            if (extname.match(/spectrum/i)){
                 spectrum_exts.push(i);
+            } else if (extname.match(/intensity/i)) {
+                this.parseMultiExtensionFitsFile(q)[0];
             }
         }
         console.log("Found spectrum extensions " + spectrum_exts);
